@@ -21,10 +21,21 @@ const displayPhones = phones => {
         `
 
         phoneContainer.appendChild(phoneCard);
-    })
+    });
+    toggleLoadingDots(false);
+}
+const toggleLoadingDots = (isLoading) => {
+    const loadingDots = document.getElementById('loading');
+    if(isLoading){
+        loadingDots.classList.remove('hidden');
+    }
+    else{
+        loadingDots.classList.add('hidden');
+    }
 }
 
 document.getElementById('selection').addEventListener('change', function () {
+    toggleLoadingDots(true);
     const selected = document.getElementById('selection').value;
     loadPhones(selected);
 })
