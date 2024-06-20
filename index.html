@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,17 @@
         <h2 class="text-4xl text-center my-12 font-bold">Hunting Phone</h2>
     </header>
     <main>
-        <section>
+        <section class="md:container mx-auto">
+            <label for="selection" class="font-semibold">Pick Your favorite brand: </label>
+            <select id="selection" class="select w-full max-w-xs mx-auto my-8">
+                <option selected value="iphone">Iphone</option>
+                <option value="samsung">Samsung</option>
+                <option value="oppo">Oppo</option>
+                <option value="vivo">Vivo</option>
+                <option value="realme">Realme</option>
+              </select>
+        </section>
+        <section id="result-container">
             <div id="phone-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between gap-y-8 mx-auto">
                 
             </div>
