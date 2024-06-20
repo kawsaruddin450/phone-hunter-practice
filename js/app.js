@@ -3,6 +3,8 @@ const loadPhones = async (brand) => {
     const data = await res.json()
     displayPhones(data.data);
 }
+
+//display phone cards
 const displayPhones = phones => {
     const phoneContainer = document.getElementById('phone-container');
     phoneContainer.innerHTML = ``;
@@ -24,6 +26,8 @@ const displayPhones = phones => {
     });
     toggleLoadingDots(false);
 }
+
+//displaying and hiding loading dots
 const toggleLoadingDots = (isLoading) => {
     const loadingDots = document.getElementById('loading');
     if(isLoading){
@@ -33,6 +37,8 @@ const toggleLoadingDots = (isLoading) => {
         loadingDots.classList.add('hidden');
     }
 }
+
+//handle show more button and fetching targeted phone data from API
 const handleShowDetail = async (id) => {
     console.log('Clicked on', id);
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
@@ -40,6 +46,7 @@ const handleShowDetail = async (id) => {
     showDataModal(data.data)
 }
 
+//showing phone details in modal
 const showDataModal = (phone) => {
     show_details_modal.showModal();
     document.getElementById('phone-name').innerText = phone.name;
@@ -53,10 +60,20 @@ const showDataModal = (phone) => {
     `
 }
 
+//selected brand phones displaying
 document.getElementById('selection').addEventListener('change', function () {
     toggleLoadingDots(true);
     const selected = document.getElementById('selection').value;
     loadPhones(selected);
 })
+
+//search results showing
+document.getElementById('search-btn').addEventListener('click', function(){
+    toggleLoadingDots(true);
+    const searchInput = document.getElementById('search-input');
+    loadPhones(searchInput.value);
+    searchInput.value = '';
+})
+
 
 loadPhones('iphone')
