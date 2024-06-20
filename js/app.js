@@ -10,7 +10,7 @@ const displayPhones = phones => {
     phoneContainer.innerHTML = ``;
     phones.map(phone => {
         const phoneCard = document.createElement('div');
-        phoneCard.classList.add('card', 'bg-base-100', 'shadow-xl', 'w-96', 'mx-auto');
+        phoneCard.classList.add('card', 'bg-base-100', 'shadow-xl', 'mx-auto');
         phoneCard.innerHTML = `
         <figure><img src="${phone.image}" alt="Shoes" /></figure>
         <div class="card-body">
@@ -52,6 +52,7 @@ const showDataModal = (phone) => {
     document.getElementById('phone-name').innerText = phone.name;
     document.getElementById('phone-thumb').setAttribute('src', phone.image);
     document.getElementById('phone-features').innerHTML = `
+    <p class="mt-1"><span class="font-semibold">Brand: </span>${phone.brand}</p>
     <h5 class="font-bold text-lg">Main Features: </h5>
     <p class="mt-1"><span class="font-semibold">Storage: </span>${phone.mainFeatures.storage}</p>
     <p class="mt-1"><span class="font-semibold">Display: </span>${phone.mainFeatures.displaySize}</p>
@@ -74,6 +75,5 @@ document.getElementById('search-btn').addEventListener('click', function(){
     loadPhones(searchInput.value);
     searchInput.value = '';
 })
-
 
 loadPhones('iphone')
