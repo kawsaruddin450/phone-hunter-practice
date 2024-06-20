@@ -22,16 +22,33 @@
                 <option value="oppo">Oppo</option>
                 <option value="vivo">Vivo</option>
                 <option value="huawei">Huawei</option>
-              </select>
+            </select>
         </section>
         <section id="result-container">
             <div class="text-center">
                 <span id="loading" class="loading loading-dots text-primary my-40 loading-lg hidden"></span>
             </div>
-            <div id="phone-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between gap-y-8 mx-auto">
-                
+            <div id="phone-container"
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between gap-y-8 mx-auto">
+
             </div>
         </section>
+
+        <!-- Show Modal -->
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="show_details_modal" class="modal">
+            <div class="modal-box">
+                <img src="" id="phone-thumb" alt="" class="mx-auto">
+                <h3 id="phone-name" class="font-bold text-xl">Hello!</h3>
+                <div id="phone-features" class="mt-3"></div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
     </main>
     <footer>
 
